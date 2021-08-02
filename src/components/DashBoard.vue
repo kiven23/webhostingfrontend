@@ -115,10 +115,7 @@
                             </q-card-section>
 
                             <q-card-section class="col-5 flex flex-center">
-                              <q-img
-                                class="rounded-borders"
-                                src="https://cdn.quasar.dev/img/parallax2.jpg"
-                              />
+                              <q-img class="rounded-borders" src="/icon/favicon.png" />
                             </q-card-section>
                           </q-card-section>
                           
@@ -134,7 +131,58 @@
                  <q-carousel-slide name="map1" class="column no-wrap flex-center">
                    
                   <div class="q-mt-md text-center text-black">
-                      register
+                      <div class="q-pa-md row items-start q-gutter-md justify-center" style="margin-top: -200px">
+                <q-card class="my-card">
+                  <q-card-section>
+                    <q-form
+                      @submit="onSubmit"
+                      @reset="onReset"
+                      class="q-gutter-md"
+                    >
+                      <q-input
+                        filled
+                        v-model="mail"
+                        label="Mail *"
+                        hint="Email"
+                        lazy-rules
+                        :rules="[
+                          (val) =>
+                            (val && val.length > 0) || 'Please input email',
+                        ]"
+                      />
+
+                      <q-input
+                        filled
+                        type="password"
+                        v-model="password"
+                        label="Your Pass *"
+                        lazy-rules
+                        :rules="[
+                          (val) =>
+                            (val !== null && val !== '') ||
+                            'Please input password',
+                        ]"
+                      />
+
+                      <q-toggle
+                        v-model="accept"
+                        label="I accept the license and terms"
+                      />
+
+                      <div>
+                        <q-btn label="Login" type="submit" color="primary" />
+                        <q-btn
+                          label="Reset"
+                          type="reset"
+                          color="primary"
+                          flat
+                          class="q-ml-sm"
+                        />
+                      </div>
+                    </q-form>
+                  </q-card-section>
+                </q-card>
+              </div>
                    </div>
                 </q-carousel-slide>
               </q-carousel>
